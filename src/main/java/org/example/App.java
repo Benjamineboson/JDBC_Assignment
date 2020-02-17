@@ -1,8 +1,8 @@
 package org.example;
 
 
-import model.City;
-import data.CityDaoImpl;
+import org.example.model.City;
+import org.example.data.CityDaoImpl;
 
 public class App
 {
@@ -12,8 +12,8 @@ public class App
 //        System.out.println(cityDao.findById(939));
 //        System.out.println(cityDao.findByCode("ind"));
 //        System.out.println(cityDao.findAll());
-        City vaxjo = new City(4082,"Växjö","SWE","Kronobergs län",92567);
-        System.out.println(cityDao.update(vaxjo));
+        City vaxjo = new City(4083,"Helsingborg","SWE","Skåne län",108334);
+        System.out.println(cityDao.delete(vaxjo));
 
     }
 }

@@ -1,7 +1,6 @@
-package data;
+package org.example.data;
 
-import data.CityDao;
-import model.City;
+import org.example.model.City;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static data.Data.getConnection;
+import static org.example.data.Data.getConnection;
 
 public class CityDaoImpl implements CityDao {
 
@@ -135,7 +134,11 @@ public class CityDaoImpl implements CityDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return 1;
+        if (findById(city.getCityId())!=null){
+            return 1;
+        }else{
+            return 0;
+        }
     }
 
     private City createCityFromResultSet(ResultSet rs) throws SQLException {

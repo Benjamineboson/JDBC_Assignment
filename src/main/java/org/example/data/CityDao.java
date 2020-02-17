@@ -1,6 +1,6 @@
-package data;
+package org.example.data;
 
-import model.City;
+import org.example.model.City;
 
 import java.util.List;
 
