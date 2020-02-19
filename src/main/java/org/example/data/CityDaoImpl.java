@@ -126,19 +126,16 @@ public class CityDaoImpl implements CityDao {
 
     @Override
     public int delete(City city) {
+        int affectedCities = 0;
         try(Connection connection = getConnection();
             PreparedStatement statement = connection.prepareStatement(DELETE_CITY)
         ){
             statement.setInt(1,city.getCityId());
-            statement.execute();
+            affectedCities = statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        if (findById(city.getCityId())!=null){
-            return 1;
-        }else{
-            return 0;
-        }
+        return affectedCities;
     }
 
     private City createCityFromResultSet(ResultSet rs) throws SQLException {
